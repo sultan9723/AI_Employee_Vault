@@ -4,4 +4,4 @@
 
 **Decision:** NEEDS_ACTION
 
-**Reason:** Task content was empty or missing required information.
+**Reason:** Missing or unclear information.
