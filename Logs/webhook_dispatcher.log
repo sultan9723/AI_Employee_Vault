@@ -1,0 +1,65 @@
+2026-01-19 00:47:45 | INFO     | ============================================================
+2026-01-19 00:47:45 | INFO     | Webhook Dispatcher Agent started
+2026-01-19 00:47:45 | INFO     | Input: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\In_Progress
+2026-01-19 00:47:45 | INFO     | Plans: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Plans
+2026-01-19 00:47:45 | INFO     | Webhook: http://localhost:8000/webhook
+2026-01-19 00:47:45 | INFO     | Completed: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Completed
+2026-01-19 00:47:45 | INFO     | Failed: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Failed
+2026-01-19 00:47:45 | INFO     | ============================================================
+2026-01-19 00:47:45 | INFO     | No tasks found in In_Progress directory
+2026-01-19 00:53:09 | INFO     | ============================================================
+2026-01-19 00:53:09 | INFO     | Webhook Dispatcher Agent started
+2026-01-19 00:53:09 | INFO     | Input: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\In_Progress
+2026-01-19 00:53:09 | INFO     | Plans: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Plans
+2026-01-19 00:53:09 | INFO     | Webhook: http://localhost:8000/webhook
+2026-01-19 00:53:09 | INFO     | Completed: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Completed
+2026-01-19 00:53:09 | INFO     | Failed: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Failed
+2026-01-19 00:53:09 | INFO     | ============================================================
+2026-01-19 00:53:09 | INFO     | Found 1 task(s) to dispatch
+2026-01-19 00:53:09 | ERROR    | BLOCKED: task_001.plan has no plan
+2026-01-19 00:53:09 | INFO     | Webhook Dispatcher completed: 0 success, 1 failed, 0 errors
+2026-01-19 00:53:09 | INFO     | ============================================================
+2026-01-19 00:57:57 | INFO     | ============================================================
+2026-01-19 00:57:57 | INFO     | Webhook Dispatcher Agent started
+2026-01-19 00:57:57 | INFO     | Input: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\In_Progress
+2026-01-19 00:57:57 | INFO     | Plans: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Plans
+2026-01-19 00:57:57 | INFO     | Webhook: http://localhost:8000/webhook
+2026-01-19 00:57:57 | INFO     | Completed: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Completed
+2026-01-19 00:57:57 | INFO     | Failed: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Failed
+2026-01-19 00:57:57 | INFO     | ============================================================
+2026-01-19 00:57:57 | INFO     | No tasks found in In_Progress directory
+2026-01-19 02:01:15 | INFO     | ============================================================
+2026-01-19 02:01:15 | INFO     | Webhook Dispatcher Agent started
+2026-01-19 02:01:15 | INFO     | Input: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\In_Progress
+2026-01-19 02:01:15 | INFO     | Plans: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Plans
+2026-01-19 02:01:15 | INFO     | Webhook: http://localhost:8000/webhook
+2026-01-19 02:01:15 | INFO     | Completed: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Completed
+2026-01-19 02:01:15 | INFO     | Failed: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Failed
+2026-01-19 02:01:15 | INFO     | ============================================================
+2026-01-19 02:01:15 | INFO     | Found 1 task(s) to dispatch
+2026-01-19 02:01:15 | INFO     | SENDING: task_100 to http://localhost:8000/webhook
+2026-01-19 02:01:19 | ERROR    | FAILED: task_100 webhook error 0
+2026-01-19 02:01:19 | INFO     | Webhook Dispatcher completed: 0 success, 1 failed, 0 errors
+2026-01-19 02:01:19 | INFO     | ============================================================
+2026-01-19 02:04:46 | INFO     | ============================================================
+2026-01-19 02:04:46 | INFO     | Webhook Dispatcher Agent started
+2026-01-19 02:04:46 | INFO     | Input: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\In_Progress
+2026-01-19 02:04:46 | INFO     | Plans: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Plans
+2026-01-19 02:04:46 | INFO     | Webhook: http://localhost:8000/webhook
+2026-01-19 02:04:46 | INFO     | Completed: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Completed
+2026-01-19 02:04:46 | INFO     | Failed: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Failed
+2026-01-19 02:04:46 | INFO     | ============================================================
+2026-01-19 02:04:46 | INFO     | No tasks found in In_Progress directory
+2026-01-19 02:22:09 | INFO     | ============================================================
+2026-01-19 02:22:09 | INFO     | Webhook Dispatcher Agent started
+2026-01-19 02:22:09 | INFO     | Input: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\In_Progress
+2026-01-19 02:22:09 | INFO     | Plans: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Plans
+2026-01-19 02:22:09 | INFO     | Webhook: http://localhost:8000/webhook
+2026-01-19 02:22:09 | INFO     | Completed: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Completed
+2026-01-19 02:22:09 | INFO     | Failed: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Failed
+2026-01-19 02:22:09 | INFO     | ============================================================
+2026-01-19 02:22:09 | INFO     | Found 1 task(s) to dispatch
+2026-01-19 02:22:09 | INFO     | SENDING: task_100 to http://localhost:8000/webhook
+2026-01-19 02:22:11 | INFO     | SUCCESS: task_100 sent to webhook
+2026-01-19 02:22:11 | INFO     | Webhook Dispatcher completed: 1 success, 0 failed, 0 errors
+2026-01-19 02:22:11 | INFO     | ============================================================

@@ -1,0 +1,60 @@
+2026-01-22 16:12:14 | INFO     | ============================================================
+2026-01-22 16:12:14 | INFO     | Email Dispatcher Agent started
+2026-01-22 16:12:14 | INFO     | Input: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\In_Progress
+2026-01-22 16:12:14 | INFO     | Plans: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Plans
+2026-01-22 16:12:14 | INFO     | Config: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Configs\email_config.json
+2026-01-22 16:12:14 | INFO     | Completed: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Completed
+2026-01-22 16:12:14 | INFO     | Failed: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Failed
+2026-01-22 16:12:14 | INFO     | ============================================================
+2026-01-22 16:12:14 | ERROR    | Environment variable EMAIL_PASSWORD not set
+2026-01-22 16:15:13 | INFO     | ============================================================
+2026-01-22 16:15:13 | INFO     | Email Dispatcher Agent started
+2026-01-22 16:15:13 | INFO     | Input: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\In_Progress
+2026-01-22 16:15:13 | INFO     | Plans: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Plans
+2026-01-22 16:15:13 | INFO     | Config: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Configs\email_config.json
+2026-01-22 16:15:13 | INFO     | Completed: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Completed
+2026-01-22 16:15:13 | INFO     | Failed: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Failed
+2026-01-22 16:15:13 | INFO     | ============================================================
+2026-01-22 16:15:13 | ERROR    | Environment variable EMAIL_PASSWORD not set
+2026-01-22 16:15:44 | INFO     | ============================================================
+2026-01-22 16:15:44 | INFO     | Email Dispatcher Agent started
+2026-01-22 16:15:44 | INFO     | Input: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\In_Progress
+2026-01-22 16:15:44 | INFO     | Plans: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Plans
+2026-01-22 16:15:44 | INFO     | Config: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Configs\email_config.json
+2026-01-22 16:15:44 | INFO     | Completed: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Completed
+2026-01-22 16:15:44 | INFO     | Failed: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Failed
+2026-01-22 16:15:44 | INFO     | ============================================================
+2026-01-22 16:15:44 | INFO     | Found 1 task(s) to send
+2026-01-22 16:15:44 | WARNING  | WARNING: test_email - no plan found
+2026-01-22 16:15:44 | INFO     | SENDING: test_email to sultan.malik9723@gmail.com
+2026-01-22 16:15:48 | INFO     | SUCCESS: test_email email sent
+2026-01-22 16:15:48 | INFO     | Email Dispatcher completed: 1 sent, 0 failed, 0 errors
+2026-01-22 16:15:48 | INFO     | ============================================================
+2026-01-22 16:18:04 | INFO     | ============================================================
+2026-01-22 16:18:04 | INFO     | Email Dispatcher Agent started
+2026-01-22 16:18:04 | INFO     | Input: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\In_Progress
+2026-01-22 16:18:04 | INFO     | Plans: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Plans
+2026-01-22 16:18:04 | INFO     | Config: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Configs\email_config.json
+2026-01-22 16:18:04 | INFO     | Completed: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Completed
+2026-01-22 16:18:04 | INFO     | Failed: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Failed
+2026-01-22 16:18:04 | INFO     | ============================================================
+2026-01-22 16:18:04 | INFO     | Found 1 task(s) to send
+2026-01-22 16:18:04 | WARNING  | WARNING: testing_email - no plan found
+2026-01-22 16:18:04 | INFO     | SENDING: testing_email to arbabgohar333@gmail.com
+2026-01-22 16:18:07 | INFO     | SUCCESS: testing_email email sent
+2026-01-22 16:18:07 | INFO     | Email Dispatcher completed: 1 sent, 0 failed, 0 errors
+2026-01-22 16:18:07 | INFO     | ============================================================
+2026-01-24 15:22:37 | INFO     | ============================================================
+2026-01-24 15:22:37 | INFO     | Email Dispatcher Agent started
+2026-01-24 15:22:37 | INFO     | Input: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\In_Progress
+2026-01-24 15:22:37 | INFO     | Plans: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Plans
+2026-01-24 15:22:37 | INFO     | Config: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Configs\email_config.json
+2026-01-24 15:22:37 | INFO     | Completed: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Completed
+2026-01-24 15:22:37 | INFO     | Failed: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Failed
+2026-01-24 15:22:37 | INFO     | ============================================================
+2026-01-24 15:22:37 | INFO     | Found 1 task(s) to send
+2026-01-24 15:22:37 | WARNING  | WARNING: test_email - no plan found
+2026-01-24 15:22:37 | INFO     | SENDING: test_email to sultan.malik9723@gmail.com
+2026-01-24 15:22:42 | WARNING  | SKIPPED: test_email.md already exists in Completed/
+2026-01-24 15:22:42 | INFO     | Email Dispatcher completed: 0 sent, 0 failed, 1 errors
+2026-01-24 15:22:42 | INFO     | ============================================================

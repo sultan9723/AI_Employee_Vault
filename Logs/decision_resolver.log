@@ -1,0 +1,24 @@
+2026-01-19 02:01:07 | INFO     | ============================================================
+2026-01-19 02:01:07 | INFO     | Decision Resolver Agent started
+2026-01-19 02:01:07 | INFO     | Decisions: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Decisions
+2026-01-19 02:01:07 | INFO     | Needs_Action: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Needs_Action
+2026-01-19 02:01:07 | INFO     | Approved: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Approved
+2026-01-19 02:01:07 | INFO     | Failed: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Failed
+2026-01-19 02:01:07 | INFO     | ============================================================
+2026-01-19 02:01:07 | INFO     | Found 1 decision file(s)
+2026-01-19 02:01:07 | INFO     | PROCESSING: task_100 - decision: READY_FOR_EXECUTION
+2026-01-19 02:01:07 | INFO     | APPROVED: task_100 moved to Approved/
+2026-01-19 02:01:07 | INFO     | Decision Resolver completed: 1 transitioned, 0 waiting, 0 skipped, 0 errors
+2026-01-19 02:01:07 | INFO     | ============================================================
+2026-01-19 02:21:27 | INFO     | ============================================================
+2026-01-19 02:21:27 | INFO     | Decision Resolver Agent started
+2026-01-19 02:21:27 | INFO     | Decisions: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Decisions
+2026-01-19 02:21:27 | INFO     | Needs_Action: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Needs_Action
+2026-01-19 02:21:27 | INFO     | Approved: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Approved
+2026-01-19 02:21:27 | INFO     | Failed: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Failed
+2026-01-19 02:21:27 | INFO     | ============================================================
+2026-01-19 02:21:27 | INFO     | Found 1 decision file(s)
+2026-01-19 02:21:27 | INFO     | PROCESSING: task_100 - decision: READY_FOR_EXECUTION
+2026-01-19 02:21:27 | INFO     | APPROVED: task_100 moved to Approved/
+2026-01-19 02:21:27 | INFO     | Decision Resolver completed: 1 transitioned, 0 waiting, 0 skipped, 0 errors
+2026-01-19 02:21:27 | INFO     | ============================================================

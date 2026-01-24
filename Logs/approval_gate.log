@@ -1,0 +1,13 @@
+2026-01-19 00:31:42 | INFO     | ============================================================
+2026-01-19 00:31:42 | INFO     | Approval Gate Agent started
+2026-01-19 00:31:42 | INFO     | Input: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Needs_Action
+2026-01-19 00:31:42 | INFO     | Plans: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Plans
+2026-01-19 00:31:42 | INFO     | Approvals: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Approvals
+2026-01-19 00:31:42 | INFO     | Output: C:\Users\Admin\OneDrive\Desktop\AI_Employee_Vault\Approved
+2026-01-19 00:31:42 | INFO     | ============================================================
+2026-01-19 00:31:42 | INFO     | Found 3 task file(s) to process
+2026-01-19 00:31:42 | INFO     | BLOCKED: task_001 (missing approval)
+2026-01-19 00:31:42 | INFO     | BLOCKED: task_002 (missing approval)
+2026-01-19 00:31:42 | INFO     | BLOCKED: task_bronze_final (missing plan and approval)
+2026-01-19 00:31:42 | INFO     | Approval Gate completed: 0 approved, 3 blocked, 0 errors
+2026-01-19 00:31:42 | INFO     | ============================================================
