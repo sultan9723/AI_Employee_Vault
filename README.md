@@ -2,7 +2,7 @@
 
 > **An autonomous AI employee that reads tasks, thinks through decisions, and asks for approval — all powered by Claude Code and Obsidian.**
 
-Built for the **2026 Personal AI Employee Hackathon**
+Personal AI Employee
 
 ---
 
@@ -57,10 +57,10 @@ The entire system lives in an Obsidian vault — a collection of markdown files 
 | `Logs/Reasoning/` | Full audit trail of AI decisions |
 
 This structure means:
-- ✅ Everything is human-readable (no databases)
-- ✅ Full transparency into AI thinking
-- ✅ Easy to review, edit, or override
-- ✅ Works offline with local files
+- Everything is human-readable (no databases)
+- Full transparency into AI thinking
+- Easy to review, edit, or override
+- Works offline with local files
 
 ---
 
@@ -110,12 +110,12 @@ The AI Employee is designed to **assist, not replace** human judgment.
 
 | Action Type | AI Behavior |
 |-------------|-------------|
-| Reading/analyzing tasks | ✅ Autonomous |
-| Creating plans | ✅ Autonomous |
-| Internal calculations | ✅ Autonomous |
-| **Client communication** | 🔒 Requires approval |
-| **Financial decisions** | 🔒 Requires approval |
-| **Commitments/contracts** | 🔒 Requires approval |
+| Reading/analyzing tasks | Autonomous |
+| Creating plans | Autonomous |
+| Internal calculations | Autonomous |
+| **Client communication** | Requires approval |
+| **Financial decisions** | Requires approval |
+| **Commitments/contracts** | Requires approval |
 
 ### How approval works:
 
@@ -128,7 +128,7 @@ This ensures the AI handles the busywork while humans make the important calls.
 
 ---
 
-## 🏆 Why This Matters
+## Why This Matters
 
 | Traditional Automation | AI Employee Vault |
 |------------------------|-------------------|
@@ -164,7 +164,7 @@ AI_Employee_Vault/
 
 ---
 
-## 🚀 Quick Demo
+## Quick Demo
 
 1. Drop a task file into `Inbox/`
 2. Watch the AI read it, plan a response, and request approval
@@ -182,9 +182,8 @@ AI_Employee_Vault/
 
 ---
 
-## 👥 Team
-
-Built with ❤️ for the 2026 Personal AI Employee Hackathon
+## 
+Personal AI Employee 
 
 ---
 
