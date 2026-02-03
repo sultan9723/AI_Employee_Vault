@@ -18,7 +18,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).parent.parent
 FAILED_DIR = BASE_DIR / "Failed"
 IN_PROGRESS_DIR = BASE_DIR / "In_Progress"
-APPROVALS_DIR = BASE_DIR / "Approvals"
+PENDING_APPROVAL_DIR = BASE_DIR / "Pending_Approval"
 POLICIES_DIR = BASE_DIR / "Policies"
 POLICY_FILE = POLICIES_DIR / "retry_policy.json"
 LOG_FILE = BASE_DIR / "Logs" / "retry_agent.log"
@@ -65,7 +65,7 @@ def setup_logging() -> logging.Logger:
 
 def ensure_directories():
     """Create required directories if missing."""
-    for directory in [FAILED_DIR, IN_PROGRESS_DIR, APPROVALS_DIR, POLICIES_DIR]:
+    for directory in [FAILED_DIR, IN_PROGRESS_DIR, PENDING_APPROVAL_DIR, POLICIES_DIR]:
         directory.mkdir(parents=True, exist_ok=True)
 
 
@@ -143,8 +143,8 @@ def increment_retry_count(task_name: str, logger: logging.Logger) -> bool:
 
 
 def has_retry_approval(task_name: str) -> bool:
-    """Check if a retry approval file exists for the task."""
-    approval_file = APPROVALS_DIR / f"{task_name}.retry"
+    """Check if a retry approval file exists for the task in Pending_Approval."""
+    approval_file = PENDING_APPROVAL_DIR / f"{task_name}.retry"
     return approval_file.exists()
 
 
@@ -170,7 +170,7 @@ def move_to_in_progress(task_path: Path, logger: logging.Logger) -> bool:
 
 def remove_retry_approval(task_name: str, logger: logging.Logger):
     """Remove the retry approval file after successful retry."""
-    approval_file = APPROVALS_DIR / f"{task_name}.retry"
+    approval_file = PENDING_APPROVAL_DIR / f"{task_name}.retry"
     
     try:
         if approval_file.exists():

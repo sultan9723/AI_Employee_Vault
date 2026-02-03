@@ -21,7 +21,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).parent.parent
 IN_PROGRESS_DIR = BASE_DIR / "In_Progress"
 PLANS_DIR = BASE_DIR / "Plans"
-COMPLETED_DIR = BASE_DIR / "Completed"
+DONE_DIR = BASE_DIR / "Done"
 FAILED_DIR = BASE_DIR / "Failed"
 CONFIGS_DIR = BASE_DIR / "Configs"
 CONFIG_FILE = CONFIGS_DIR / "email_config.json"
@@ -66,7 +66,7 @@ def setup_logging() -> logging.Logger:
 
 def ensure_directories():
     """Create all required directories if they don't exist."""
-    for directory in [IN_PROGRESS_DIR, PLANS_DIR, COMPLETED_DIR, FAILED_DIR, CONFIGS_DIR]:
+    for directory in [IN_PROGRESS_DIR, PLANS_DIR, DONE_DIR, FAILED_DIR, CONFIGS_DIR]:
         directory.mkdir(parents=True, exist_ok=True)
 
 
@@ -265,10 +265,10 @@ def process_task(task_path: Path, config: dict, logger: logging.Logger) -> dict:
     success, error_msg = send_email(config, subject, body, logger)
     
     if success:
-        # Move to Completed
-        if move_task(task_path, COMPLETED_DIR, logger):
+        # Move to Done
+        if move_task(task_path, DONE_DIR, logger):
             logger.info(f"SUCCESS: {task_name} email sent")
-            result["action"] = "email sent, moved to Completed/"
+            result["action"] = "email sent, moved to Done/"
             result["status"] = "success"
         else:
             result["action"] = "email sent but move failed"
@@ -295,7 +295,7 @@ def run_email_dispatcher():
     logger.info(f"Input: {IN_PROGRESS_DIR}")
     logger.info(f"Plans: {PLANS_DIR}")
     logger.info(f"Config: {CONFIG_FILE}")
-    logger.info(f"Completed: {COMPLETED_DIR}")
+    logger.info(f"Done: {DONE_DIR}")
     logger.info(f"Failed: {FAILED_DIR}")
     logger.info("=" * 60)
     

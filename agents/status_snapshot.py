@@ -16,10 +16,10 @@ from pathlib import Path
 BASE_DIR = Path(__file__).parent.parent
 NEEDS_ACTION_DIR = BASE_DIR / "Needs_Action"
 PLANS_DIR = BASE_DIR / "Plans"
-APPROVALS_DIR = BASE_DIR / "Approvals"
+PENDING_APPROVAL_DIR = BASE_DIR / "Pending_Approval"
 APPROVED_DIR = BASE_DIR / "Approved"
 IN_PROGRESS_DIR = BASE_DIR / "In_Progress"
-COMPLETED_DIR = BASE_DIR / "Completed"
+DONE_DIR = BASE_DIR / "Done"
 FAILED_DIR = BASE_DIR / "Failed"
 STATUS_DIR = BASE_DIR / "Status"
 SNAPSHOT_FILE = STATUS_DIR / "status_snapshot.json"
@@ -56,21 +56,22 @@ def get_waiting_for_approval() -> list:
     """
     waiting = []
     
-    needs_action_files = list_files(NEEDS_ACTION_DIR)
+    # Check Pending_Approval folder for tasks awaiting approval
+    pending_files = list_files(PENDING_APPROVAL_DIR)
     
-    for filename in needs_action_files:
+    for filename in pending_files:
         task_name = get_task_name(filename)
         
         # Check if plan exists
         plan_path = PLANS_DIR / f"{task_name}.plan.md"
         has_plan = plan_path.exists()
         
-        # Check if approval exists
-        approval_path = APPROVALS_DIR / f"{task_name}.approved"
-        has_approval = approval_path.exists()
+        # Check if task was moved to Approved
+        approved_path = APPROVED_DIR / filename
+        has_approval = approved_path.exists()
         
-        # Waiting for approval = has plan but no approval
-        if has_plan and not has_approval:
+        # Waiting for approval = in Pending_Approval and not yet moved to Approved
+        if not has_approval:
             waiting.append(filename)
     
     return waiting
@@ -84,10 +85,11 @@ def generate_snapshot() -> dict:
     return {
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "needs_action": list_files(NEEDS_ACTION_DIR),
+        "pending_approval": list_files(PENDING_APPROVAL_DIR),
         "waiting_for_approval": get_waiting_for_approval(),
         "approved": list_files(APPROVED_DIR),
         "in_progress": list_files(IN_PROGRESS_DIR),
-        "completed": list_files(COMPLETED_DIR),
+        "done": list_files(DONE_DIR),
         "failed": list_files(FAILED_DIR),
     }
 

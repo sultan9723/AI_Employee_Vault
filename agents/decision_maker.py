@@ -1,13 +1,13 @@
 """
 Decision Maker Agent
-Analyzes tasks and generates ONE decision file per task.
+Analyzes tasks and routes them to appropriate folders.
 Part of the AI Employee system - the reasoning layer.
 
-This agent THINKS and WRITES decision artifacts.
-It does NOT move files, execute actions, or create approvals.
+This agent THINKS and ROUTES task files based on analysis.
 """
 
 import json
+import shutil
 import logging
 from datetime import datetime, timezone
 from pathlib import Path
@@ -17,8 +17,8 @@ from pathlib import Path
 BASE_DIR = Path(__file__).parent.parent
 NEEDS_ACTION_DIR = BASE_DIR / "Needs_Action"
 PLANS_DIR = BASE_DIR / "Plans"
-APPROVALS_DIR = BASE_DIR / "Approvals"
-DECISIONS_DIR = BASE_DIR / "Decisions"
+PENDING_APPROVAL_DIR = BASE_DIR / "Pending_Approval"
+APPROVED_DIR = BASE_DIR / "Approved"
 LOG_FILE = BASE_DIR / "Logs" / "decision_maker.log"
 
 # Valid decision states (canonical)
@@ -81,7 +81,7 @@ def setup_logging() -> logging.Logger:
 
 def ensure_directories():
     """Create all required directories if they don't exist."""
-    for directory in [NEEDS_ACTION_DIR, PLANS_DIR, APPROVALS_DIR, DECISIONS_DIR]:
+    for directory in [NEEDS_ACTION_DIR, PLANS_DIR, PENDING_APPROVAL_DIR]:
         directory.mkdir(parents=True, exist_ok=True)
 
 
@@ -129,9 +129,9 @@ def analyze_task(task_name: str, task_content: str, logger: logging.Logger) -> t
     plan_path = PLANS_DIR / f"{task_name}.plan.md"
     has_plan = plan_path.exists() and plan_path.stat().st_size > 0
     
-    # Check if approval exists
-    approval_path = APPROVALS_DIR / f"{task_name}.approved"
-    has_approval = approval_path.exists()
+    # Check if approval exists (task was moved to Approved folder)
+    approved_path = APPROVED_DIR / f"{task_name}.md"
+    has_approval = approved_path.exists()
     
     # Decision logic based on state
     if has_plan and has_approval:
@@ -176,32 +176,30 @@ def create_decision(task_name: str, decision: str, reason: str) -> dict:
     }
 
 
-def write_decision_file(task_name: str, decision_obj: dict, logger: logging.Logger) -> bool:
+def move_to_pending_approval(task_path: Path, logger: logging.Logger) -> bool:
     """
-    Write a single decision file for a task.
-    File path: Decisions/<task_name>.decision.json
+    Move a task file to Pending_Approval directory for human review.
     Never overwrites existing files.
     """
-    decision_path = DECISIONS_DIR / f"{task_name}.decision.json"
+    destination = PENDING_APPROVAL_DIR / task_path.name
     
-    # Never overwrite existing decision files
-    if decision_path.exists():
-        logger.info(f"SKIPPED: Decision already exists for {task_name}")
+    # Never overwrite existing files
+    if destination.exists():
+        logger.info(f"SKIPPED: {task_path.name} already in Pending_Approval")
         return False
     
     try:
-        content = json.dumps(decision_obj, indent=2)
-        decision_path.write_text(content, encoding="utf-8")
-        logger.info(f"DECIDED: {task_name} → {decision_obj['decision']}")
+        shutil.move(str(task_path), str(destination))
+        logger.info(f"MOVED: {task_path.name} → Pending_Approval/")
         return True
     except Exception as e:
-        logger.error(f"WRITE FAILED: {task_name} - {e}")
+        logger.error(f"MOVE FAILED: {task_path.name} - {e}")
         return False
 
 
 def process_task(task_path: Path, logger: logging.Logger) -> dict:
     """
-    Process a single task and generate its decision file.
+    Process a single task and route it appropriately.
     Returns a status dictionary.
     """
     task_filename = task_path.name
@@ -214,11 +212,13 @@ def process_task(task_path: Path, logger: logging.Logger) -> dict:
         "status": None,
     }
     
-    # Check if decision already exists
-    decision_path = DECISIONS_DIR / f"{task_name}.decision.json"
-    if decision_path.exists():
+    # Check if already in Pending_Approval or Approved
+    pending_path = PENDING_APPROVAL_DIR / task_filename
+    approved_path = APPROVED_DIR / task_filename
+    
+    if pending_path.exists() or approved_path.exists():
         result["status"] = "skipped"
-        result["decision"] = "already exists"
+        result["decision"] = "already processed"
         return result
     
     # Load task content
@@ -227,30 +227,34 @@ def process_task(task_path: Path, logger: logging.Logger) -> dict:
     # Analyze task and determine decision
     decision, reason = analyze_task(task_name, task_content, logger)
     
-    # Create decision object
-    decision_obj = create_decision(task_name, decision, reason)
-    
-    # Write decision file
-    if write_decision_file(task_name, decision_obj, logger):
-        result["status"] = "created"
-        result["decision"] = decision
+    # Route based on decision
+    if decision == "READY_FOR_APPROVAL" or decision == "READY_FOR_EXECUTION":
+        # Move to Pending_Approval for human review
+        if move_to_pending_approval(task_path, logger):
+            result["status"] = "pending_approval"
+            result["decision"] = decision
+        else:
+            result["status"] = "error"
+            result["decision"] = "move failed"
     else:
-        result["status"] = "error"
-        result["decision"] = "write failed"
+        # Keep in Needs_Action (needs more input or blocked)
+        result["status"] = "waiting"
+        result["decision"] = decision
+        logger.info(f"WAITING: {task_name} - {reason}")
     
     return result
 
 
 def run_decision_maker():
-    """Main function to process all tasks and generate decisions."""
+    """Main function to process all tasks and route them appropriately."""
     logger = setup_logging()
     
     logger.info("=" * 60)
     logger.info("Decision Maker Agent started")
     logger.info(f"Input: {NEEDS_ACTION_DIR}")
     logger.info(f"Plans: {PLANS_DIR}")
-    logger.info(f"Approvals: {APPROVALS_DIR}")
-    logger.info(f"Output: {DECISIONS_DIR}")
+    logger.info(f"Output: {PENDING_APPROVAL_DIR}")
+    logger.info(f"Approved: {APPROVED_DIR}")
     logger.info("=" * 60)
     
     print("\n" + "=" * 50)

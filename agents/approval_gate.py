@@ -15,7 +15,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).parent.parent
 NEEDS_ACTION_DIR = BASE_DIR / "Needs_Action"
 PLANS_DIR = BASE_DIR / "Plans"
-APPROVALS_DIR = BASE_DIR / "Approvals"
+PENDING_APPROVAL_DIR = BASE_DIR / "Pending_Approval"
 APPROVED_DIR = BASE_DIR / "Approved"
 LOG_FILE = BASE_DIR / "Logs" / "approval_gate.log"
 
@@ -55,7 +55,7 @@ def setup_logging() -> logging.Logger:
 
 def ensure_directories():
     """Create all required directories if they don't exist."""
-    for directory in [NEEDS_ACTION_DIR, PLANS_DIR, APPROVALS_DIR, APPROVED_DIR]:
+    for directory in [NEEDS_ACTION_DIR, PLANS_DIR, PENDING_APPROVAL_DIR, APPROVED_DIR]:
         directory.mkdir(parents=True, exist_ok=True)
 
 
@@ -70,10 +70,10 @@ def check_plan_exists(task_name: str) -> bool:
     return plan_file.exists()
 
 
-def check_approval_exists(task_name: str) -> bool:
-    """Check if an approval file exists for the given task."""
-    approval_file = APPROVALS_DIR / f"{task_name}.approved"
-    return approval_file.exists()
+def check_in_approved_folder(task_filename: str) -> bool:
+    """Check if task file has been moved to Approved folder by human."""
+    approved_path = APPROVED_DIR / task_filename
+    return approved_path.exists()
 
 
 def move_task_to_approved(task_path: Path, logger: logging.Logger) -> bool:
@@ -115,11 +115,11 @@ def process_task(task_path: Path, logger: logging.Logger) -> dict:
     # Check for plan
     has_plan = check_plan_exists(task_name)
     
-    # Check for approval
-    has_approval = check_approval_exists(task_name)
+    # Check if task was moved to Approved folder (human approval)
+    is_approved = check_in_approved_folder(task_filename)
     
     # Determine status
-    if not has_plan and not has_approval:
+    if not has_plan and not is_approved:
         result["status"] = "blocked"
         result["reason"] = "missing plan and approval"
         logger.info(f"BLOCKED: {task_name} (missing plan and approval)")
@@ -129,10 +129,10 @@ def process_task(task_path: Path, logger: logging.Logger) -> dict:
         result["reason"] = "missing plan"
         logger.info(f"BLOCKED: {task_name} (missing plan)")
         
-    elif not has_approval:
-        result["status"] = "blocked"
-        result["reason"] = "missing approval"
-        logger.info(f"BLOCKED: {task_name} (missing approval)")
+    elif not is_approved:
+        result["status"] = "pending"
+        result["reason"] = "awaiting human approval (move to Approved folder)"
+        logger.info(f"PENDING: {task_name} (awaiting human approval)")
         
     else:
         # Both exist - attempt to move
@@ -155,7 +155,7 @@ def run_approval_gate():
     logger.info("Approval Gate Agent started")
     logger.info(f"Input: {NEEDS_ACTION_DIR}")
     logger.info(f"Plans: {PLANS_DIR}")
-    logger.info(f"Approvals: {APPROVALS_DIR}")
+    logger.info(f"Pending: {PENDING_APPROVAL_DIR}")
     logger.info(f"Output: {APPROVED_DIR}")
     logger.info("=" * 60)
     

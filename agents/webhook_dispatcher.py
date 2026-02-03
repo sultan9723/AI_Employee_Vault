@@ -17,7 +17,7 @@ from urllib.error import URLError, HTTPError
 BASE_DIR = Path(__file__).parent.parent
 IN_PROGRESS_DIR = BASE_DIR / "In_Progress"
 PLANS_DIR = BASE_DIR / "Plans"
-COMPLETED_DIR = BASE_DIR / "Completed"
+DONE_DIR = BASE_DIR / "Done"
 FAILED_DIR = BASE_DIR / "Failed"
 LOG_FILE = BASE_DIR / "Logs" / "webhook_dispatcher.log"
 
@@ -60,7 +60,7 @@ def setup_logging() -> logging.Logger:
 
 def ensure_directories():
     """Create all required directories if they don't exist."""
-    for directory in [IN_PROGRESS_DIR, PLANS_DIR, COMPLETED_DIR, FAILED_DIR]:
+    for directory in [IN_PROGRESS_DIR, PLANS_DIR, DONE_DIR, FAILED_DIR]:
         directory.mkdir(parents=True, exist_ok=True)
 
 
@@ -187,8 +187,8 @@ def process_task(task_path: Path, logger: logging.Logger) -> dict:
     success, status_code, error_msg = send_webhook(payload, logger)
     
     if success:
-        # Move to Completed
-        if move_task(task_path, COMPLETED_DIR, logger):
+        # Move to Done
+        if move_task(task_path, DONE_DIR, logger):
             result["status"] = "success"
             result["reason"] = f"status {status_code}"
             logger.info(f"SUCCESS: {task_name} sent to webhook")
@@ -218,7 +218,7 @@ def run_webhook_dispatcher():
     logger.info(f"Input: {IN_PROGRESS_DIR}")
     logger.info(f"Plans: {PLANS_DIR}")
     logger.info(f"Webhook: {WEBHOOK_URL}")
-    logger.info(f"Completed: {COMPLETED_DIR}")
+    logger.info(f"Done: {DONE_DIR}")
     logger.info(f"Failed: {FAILED_DIR}")
     logger.info("=" * 60)
     
