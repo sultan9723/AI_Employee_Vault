@@ -1,3 +1,45 @@
+# Environment & Secrets
 .env
-*.log
+*.env
+
+# Credentials - NEVER COMMIT THESE
+Configs/email_config.json
+Configs/gmail_credentials.json
+Configs/gmail_token.pickle
+*.pickle
+*credentials*.json
+*token*.json
+
+# Python
 __pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+env/
+
+# Logs
+*.log
+Logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Task data (optional - remove if you want to track these)
+# Inbox/
+# Done/
+# Failed/
+# Needs_Action/
+# Pending_Approval/
+# Approved/
+# Rejected/
+# In_Progress/

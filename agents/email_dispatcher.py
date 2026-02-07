@@ -2,8 +2,6 @@
 Email Dispatcher Agent
 Sends approved tasks via email as an external action.
 Part of the AI Employee system - email action layer.
-
-This agent mirrors webhook_dispatcher behavior but for email.
 """
 
 import os
@@ -27,9 +25,6 @@ CONFIGS_DIR = BASE_DIR / "Configs"
 CONFIG_FILE = CONFIGS_DIR / "email_config.json"
 LOG_FILE = BASE_DIR / "Logs" / "email_dispatcher.log"
 
-# Environment variable for password
-PASSWORD_ENV_VAR = "EMAIL_PASSWORD"
-
 
 def setup_logging() -> logging.Logger:
     """Configure and return the logger instance."""
@@ -38,19 +33,15 @@ def setup_logging() -> logging.Logger:
     logger = logging.getLogger("email_dispatcher")
     logger.setLevel(logging.INFO)
     
-    # Prevent duplicate handlers
     if logger.handlers:
         return logger
     
-    # File handler
     file_handler = logging.FileHandler(LOG_FILE, encoding="utf-8")
     file_handler.setLevel(logging.INFO)
     
-    # Console handler
     console_handler = logging.StreamHandler()
     console_handler.setLevel(logging.INFO)
     
-    # Formatter
     formatter = logging.Formatter(
         "%(asctime)s | %(levelname)-8s | %(message)s",
         datefmt="%Y-%m-%d %H:%M:%S"
@@ -70,16 +61,8 @@ def ensure_directories():
         directory.mkdir(parents=True, exist_ok=True)
 
 
-def get_task_name(filename: str) -> str:
-    """Extract task name from filename (e.g., task_100.md → task_100)."""
-    return Path(filename).stem
-
-
 def load_config(logger: logging.Logger) -> dict:
-    """
-    Load email configuration from file.
-    Returns None if config is missing or invalid.
-    """
+    """Load email configuration from file."""
     if not CONFIG_FILE.exists():
         logger.error(f"Config file not found: {CONFIG_FILE}")
         return None
@@ -88,24 +71,20 @@ def load_config(logger: logging.Logger) -> dict:
         content = CONFIG_FILE.read_text(encoding="utf-8")
         config = json.loads(content)
         
-        # Validate required fields
-        required_fields = ["smtp_host", "smtp_port", "sender_email", "recipient_email"]
+        required_fields = ["smtp_host", "smtp_port", "sender_email", "recipient_email", "app_password"]
         for field in required_fields:
             if field not in config:
                 logger.error(f"Missing required config field: {field}")
                 return None
         
         return config
-    except json.JSONDecodeError as e:
-        logger.error(f"Invalid JSON in config: {e}")
-        return None
     except Exception as e:
         logger.error(f"Failed to load config: {e}")
         return None
 
 
 def load_file_content(file_path: Path, logger: logging.Logger) -> str:
-    """Load and return file content, or empty string if not found."""
+    """Load and return file content."""
     try:
         if file_path.exists():
             return file_path.read_text(encoding="utf-8")
@@ -116,271 +95,138 @@ def load_file_content(file_path: Path, logger: logging.Logger) -> str:
 
 
 def extract_subject(task_content: str, plan_content: str, task_name: str) -> str:
-    """
-    Extract email subject from task or plan content.
-    Falls back to task name if no suitable title found.
-    """
-    # Try to find markdown heading in task content
+    """Extract email subject from task or plan content."""
     heading_match = re.search(r'^#\s+(.+)$', task_content, re.MULTILINE)
     if heading_match:
-        return heading_match.group(1).strip()
+        return f"AI Employee - {heading_match.group(1).strip()}"
     
-    # Try to find objective in plan
-    objective_match = re.search(r'##\s*Objective\s*\n+(.+?)(?:\n|$)', plan_content, re.IGNORECASE)
-    if objective_match:
-        return objective_match.group(1).strip()
-    
-    # Fall back to formatted task name
-    return f"Task Execution: {task_name.replace('_', ' ').title()}"
+    clean_name = task_name.replace('_', ' ').replace('task ', '').title()
+    return f"AI Employee - Task Completed: {clean_name}"
 
 
 def build_email_body(task_content: str, plan_content: str, task_name: str) -> str:
-    """Construct the email body from task and plan content."""
-    timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+    """Construct a clean, professional email body."""
+    timestamp = datetime.now(timezone.utc).strftime("%B %d, %Y at %H:%M UTC")
     
-    body = f"""AI Employee Vault - Task Execution Report
-{'=' * 50}
+    body = f"""AI Employee - Task Execution Report
 
-Task: {task_name}
-Executed: {timestamp}
+Task Reference: {task_name}
+Completed: {timestamp}
 
-{'=' * 50}
-TASK CONTENT
-{'=' * 50}
+------------------------------------------------------------------------
+TASK DETAILS
+------------------------------------------------------------------------
 
-{task_content if task_content else '(No task content available)'}
+{task_content.strip() if task_content else 'No task content available.'}
 
-{'=' * 50}
+------------------------------------------------------------------------
 EXECUTION PLAN
-{'=' * 50}
+------------------------------------------------------------------------
 
-{plan_content if plan_content else '(No plan available)'}
+{plan_content.strip() if plan_content else 'No execution plan was generated for this task.'}
 
-{'=' * 50}
-This email was automatically generated by the AI Employee system.
+------------------------------------------------------------------------
+
+This is an automated message from your AI Employee system.
+Do not reply directly to this email.
 """
     return body
 
 
 def send_email(config: dict, subject: str, body: str, logger: logging.Logger) -> tuple:
-    """
-    Send email via SMTP.
-    Returns (success: bool, error_message: str).
-    """
-    # Get password from environment
-    password = os.environ.get(PASSWORD_ENV_VAR)
-    if not password:
-        return False, f"Environment variable {PASSWORD_ENV_VAR} not set"
-    
+    """Send email via SMTP. Returns (success, error_message)."""
     try:
-        # Create message
         msg = EmailMessage()
         msg["Subject"] = subject
         msg["From"] = config["sender_email"]
         msg["To"] = config["recipient_email"]
         msg.set_content(body)
         
-        # Get SMTP settings
         smtp_host = config["smtp_host"]
         smtp_port = config.get("smtp_port", 587)
-        use_tls = config.get("use_tls", True)
         username = config.get("username", config["sender_email"])
+        password = config["app_password"].replace(" ", "")  # Remove spaces from app password
         
-        # Send email
-        if use_tls:
-            with smtplib.SMTP(smtp_host, smtp_port, timeout=30) as server:
-                server.starttls()
-                server.login(username, password)
-                server.send_message(msg)
-        else:
-            with smtplib.SMTP(smtp_host, smtp_port, timeout=30) as server:
-                server.login(username, password)
-                server.send_message(msg)
+        with smtplib.SMTP(smtp_host, smtp_port, timeout=30) as server:
+            server.starttls()
+            server.login(username, password)
+            server.send_message(msg)
         
         return True, ""
-        
+    
     except smtplib.SMTPAuthenticationError as e:
         return False, f"Authentication failed: {e}"
-    except smtplib.SMTPException as e:
-        return False, f"SMTP error: {e}"
     except Exception as e:
-        return False, f"Unexpected error: {e}"
+        return False, f"Email failed: {e}"
 
 
-def move_task(task_path: Path, destination_dir: Path, logger: logging.Logger) -> bool:
-    """
-    Move a task file to the destination directory.
-    Never overwrites existing files.
-    Returns True if successful.
-    """
-    destination = destination_dir / task_path.name
+def process_task(task_file: Path, config: dict, logger: logging.Logger) -> bool:
+    """Process a single task file and send email."""
+    task_name = task_file.stem
+    logger.info(f"Processing: {task_name}")
     
-    if destination.exists():
-        logger.warning(f"SKIPPED: {task_path.name} already exists in {destination_dir.name}/")
-        return False
-    
-    try:
-        shutil.move(str(task_path), str(destination))
-        return True
-    except Exception as e:
-        logger.error(f"MOVE FAILED: {task_path.name} - {e}")
-        return False
-
-
-def process_task(task_path: Path, config: dict, logger: logging.Logger) -> dict:
-    """
-    Process a single task and send email.
-    Returns a status dictionary.
-    """
-    task_filename = task_path.name
-    task_name = get_task_name(task_filename)
-    
-    result = {
-        "task_name": task_name,
-        "filename": task_filename,
-        "action": None,
-        "status": None,
-    }
-    
-    # Load task content
-    task_content = load_file_content(task_path, logger)
-    if not task_content:
-        logger.error(f"ERROR: {task_name} - could not read task file")
-        result["action"] = "could not read task file"
-        result["status"] = "error"
-        return result
-    
-    # Load plan content
-    plan_path = PLANS_DIR / f"{task_name}.plan.md"
-    plan_content = load_file_content(plan_path, logger)
-    if not plan_content:
-        logger.warning(f"WARNING: {task_name} - no plan found")
+    # Load content
+    task_content = load_file_content(task_file, logger)
+    plan_file = PLANS_DIR / f"{task_name}.plan.md"
+    plan_content = load_file_content(plan_file, logger)
     
     # Build email
     subject = extract_subject(task_content, plan_content, task_name)
     body = build_email_body(task_content, plan_content, task_name)
     
     # Send email
-    logger.info(f"SENDING: {task_name} to {config['recipient_email']}")
-    success, error_msg = send_email(config, subject, body, logger)
+    success, error = send_email(config, subject, body, logger)
     
     if success:
+        logger.info(f"✔ Email sent for: {task_name}")
         # Move to Done
-        if move_task(task_path, DONE_DIR, logger):
-            logger.info(f"SUCCESS: {task_name} email sent")
-            result["action"] = "email sent, moved to Done/"
-            result["status"] = "success"
-        else:
-            result["action"] = "email sent but move failed"
-            result["status"] = "error"
+        dest = DONE_DIR / task_file.name
+        shutil.move(str(task_file), str(dest))
+        logger.info(f"  Moved to Done/")
+        return True
     else:
+        logger.error(f"✖ Email failed for {task_name}: {error}")
         # Move to Failed
-        if move_task(task_path, FAILED_DIR, logger):
-            logger.error(f"FAILED: {task_name} - {error_msg}")
-            result["action"] = f"email failed: {error_msg}"
-            result["status"] = "failed"
-        else:
-            result["action"] = f"email failed and move also failed: {error_msg}"
-            result["status"] = "error"
-    
-    return result
+        dest = FAILED_DIR / task_file.name
+        shutil.move(str(task_file), str(dest))
+        logger.info(f"  Moved to Failed/")
+        return False
 
 
-def run_email_dispatcher():
-    """Main function to process all in-progress tasks via email."""
+def run_dispatcher():
+    """Main function to process all tasks in In_Progress."""
     logger = setup_logging()
+    ensure_directories()
     
-    logger.info("=" * 60)
-    logger.info("Email Dispatcher Agent started")
-    logger.info(f"Input: {IN_PROGRESS_DIR}")
-    logger.info(f"Plans: {PLANS_DIR}")
-    logger.info(f"Config: {CONFIG_FILE}")
-    logger.info(f"Done: {DONE_DIR}")
-    logger.info(f"Failed: {FAILED_DIR}")
-    logger.info("=" * 60)
+    logger.info("=" * 50)
+    logger.info("Email Dispatcher started")
+    logger.info("=" * 50)
     
-    print("\n" + "=" * 50)
-    print("📧 Email Dispatcher Agent")
-    print("=" * 50 + "\n")
-    
-    # Ensure directories exist
-    try:
-        ensure_directories()
-    except Exception as e:
-        logger.error(f"Failed to create directories: {e}")
-        print(f"❌ Failed to create directories: {e}")
-        return
-    
-    # Load configuration
+    # Load config
     config = load_config(logger)
-    if config is None:
-        print(f"❌ Failed to load email configuration from {CONFIG_FILE}")
-        print("\nExpected config format:")
-        print(json.dumps({
-            "smtp_host": "smtp.example.com",
-            "smtp_port": 587,
-            "use_tls": True,
-            "sender_email": "sender@example.com",
-            "username": "sender@example.com",
-            "recipient_email": "recipient@example.com"
-        }, indent=2))
+    if not config:
+        logger.error("Cannot proceed without valid config")
         return
     
-    # Check for password
-    if not os.environ.get(PASSWORD_ENV_VAR):
-        logger.error(f"Environment variable {PASSWORD_ENV_VAR} not set")
-        print(f"❌ Environment variable {PASSWORD_ENV_VAR} not set")
-        print(f"\nSet it with: set {PASSWORD_ENV_VAR}=your_password")
-        return
-    
-    # Find all .md files in In_Progress
-    try:
-        task_files = list(IN_PROGRESS_DIR.glob("*.md"))
-    except Exception as e:
-        logger.error(f"Failed to scan In_Progress directory: {e}")
-        print(f"❌ Failed to scan directory: {e}")
-        return
+    # Get tasks to process
+    task_files = list(IN_PROGRESS_DIR.glob("*.md"))
+    task_files = [f for f in task_files if f.name != ".gitkeep"]
     
     if not task_files:
-        logger.info("No tasks found in In_Progress directory")
-        print("📭 No tasks found in In_Progress directory")
+        logger.info("No tasks in In_Progress/")
         return
     
-    logger.info(f"Found {len(task_files)} task(s) to send")
-    print(f"📋 Found {len(task_files)} task(s)\n")
+    logger.info(f"Found {len(task_files)} task(s) to process")
     
-    # Process each task
     success_count = 0
-    failed_count = 0
-    error_count = 0
+    for task_file in task_files:
+        if process_task(task_file, config, logger):
+            success_count += 1
     
-    for task_path in sorted(task_files):
-        try:
-            result = process_task(task_path, config, logger)
-            
-            if result["status"] == "success":
-                print(f"✅ SUCCESS: {result['task_name']} → Completed/")
-                success_count += 1
-            elif result["status"] == "failed":
-                print(f"❌ FAILED: {result['task_name']} → Failed/")
-                failed_count += 1
-            else:
-                print(f"⚠️  ERROR: {result['task_name']} ({result['action']})")
-                error_count += 1
-                
-        except Exception as e:
-            logger.error(f"Exception processing {task_path.name}: {e}")
-            print(f"⚠️  ERROR: {task_path.name} ({e})")
-            error_count += 1
-    
-    # Summary
-    print("\n" + "-" * 50)
-    print(f"📊 Summary: {success_count} sent, {failed_count} failed, {error_count} errors")
-    print("-" * 50 + "\n")
-    
-    logger.info(f"Email Dispatcher completed: {success_count} sent, {failed_count} failed, {error_count} errors")
-    logger.info("=" * 60)
+    logger.info("=" * 50)
+    logger.info(f"Complete: {success_count}/{len(task_files)} emails sent")
+    logger.info("=" * 50)
 
 
 if __name__ == "__main__":
-    run_email_dispatcher()
+    run_dispatcher()
