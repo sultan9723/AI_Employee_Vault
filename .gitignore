@@ -42,4 +42,10 @@ Thumbs.db
 # Pending_Approval/
 # Approved/
 # Rejected/
-# In_Progress/
+# In_Progress/__pycache__/
+*.pyc
+.env
+Configs/email_config.json
+Configs/gmail_token.pickle
+Configs/gmail_credentials.json
+*.pickle
