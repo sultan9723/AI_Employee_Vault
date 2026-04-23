@@ -985,3 +985,193 @@
 2026-04-23 16:02:40 | INFO     | Output: C:\dev\AI_Employee_Vault\Approved
 2026-04-23 16:02:40 | INFO     | ============================================================
 2026-04-23 16:02:40 | INFO     | No task files found in Needs_Action directory
+2026-04-23 23:25:38 | INFO     | ============================================================
+2026-04-23 23:25:38 | INFO     | Approval Gate Agent started
+2026-04-23 23:25:38 | INFO     | Input: C:\dev\AI_Employee_Vault\Needs_Action
+2026-04-23 23:25:38 | INFO     | Plans: C:\dev\AI_Employee_Vault\Plans
+2026-04-23 23:25:38 | INFO     | Pending: C:\dev\AI_Employee_Vault\Pending_Approval
+2026-04-23 23:25:38 | INFO     | Output: C:\dev\AI_Employee_Vault\Approved
+2026-04-23 23:25:38 | INFO     | ============================================================
+2026-04-23 23:26:09 | INFO     | ============================================================
+2026-04-23 23:26:09 | INFO     | Approval Gate Agent started
+2026-04-23 23:26:09 | INFO     | Input: C:\dev\AI_Employee_Vault\Needs_Action
+2026-04-23 23:26:09 | INFO     | Plans: C:\dev\AI_Employee_Vault\Plans
+2026-04-23 23:26:09 | INFO     | Pending: C:\dev\AI_Employee_Vault\Pending_Approval
+2026-04-23 23:26:09 | INFO     | Output: C:\dev\AI_Employee_Vault\Approved
+2026-04-23 23:26:09 | INFO     | ============================================================
+2026-04-23 23:27:34 | INFO     | ============================================================
+2026-04-23 23:27:34 | INFO     | Approval Gate Agent started
+2026-04-23 23:27:34 | INFO     | Input: C:\dev\AI_Employee_Vault\Needs_Action
+2026-04-23 23:27:34 | INFO     | Plans: C:\dev\AI_Employee_Vault\Plans
+2026-04-23 23:27:34 | INFO     | Pending: C:\dev\AI_Employee_Vault\Pending_Approval
+2026-04-23 23:27:34 | INFO     | Output: C:\dev\AI_Employee_Vault\Approved
+2026-04-23 23:27:34 | INFO     | ============================================================
+2026-04-23 23:27:34 | INFO     | Found 1 task file(s) to process
+2026-04-23 23:27:34 | INFO     | PENDING: task_test_pipeline (awaiting human approval)
+2026-04-23 23:27:34 | INFO     | Approval Gate completed: 0 approved, 0 blocked, 1 errors
+2026-04-23 23:27:34 | INFO     | ============================================================
+2026-04-23 23:28:05 | INFO     | ============================================================
+2026-04-23 23:28:05 | INFO     | Approval Gate Agent started
+2026-04-23 23:28:05 | INFO     | Input: C:\dev\AI_Employee_Vault\Needs_Action
+2026-04-23 23:28:05 | INFO     | Plans: C:\dev\AI_Employee_Vault\Plans
+2026-04-23 23:28:05 | INFO     | Pending: C:\dev\AI_Employee_Vault\Pending_Approval
+2026-04-23 23:28:05 | INFO     | Output: C:\dev\AI_Employee_Vault\Approved
+2026-04-23 23:28:05 | INFO     | ============================================================
+2026-04-23 23:28:05 | INFO     | Found 1 task file(s) to process
+2026-04-23 23:28:05 | INFO     | PENDING: task_test_pipeline (awaiting human approval)
+2026-04-23 23:28:05 | INFO     | Approval Gate completed: 0 approved, 0 blocked, 1 errors
+2026-04-23 23:28:05 | INFO     | ============================================================
+2026-04-23 23:28:36 | INFO     | ============================================================
+2026-04-23 23:28:36 | INFO     | Approval Gate Agent started
+2026-04-23 23:28:36 | INFO     | Input: C:\dev\AI_Employee_Vault\Needs_Action
+2026-04-23 23:28:36 | INFO     | Plans: C:\dev\AI_Employee_Vault\Plans
+2026-04-23 23:28:36 | INFO     | Pending: C:\dev\AI_Employee_Vault\Pending_Approval
+2026-04-23 23:28:36 | INFO     | Output: C:\dev\AI_Employee_Vault\Approved
+2026-04-23 23:28:36 | INFO     | ============================================================
+2026-04-23 23:28:36 | INFO     | Found 1 task file(s) to process
+2026-04-23 23:28:36 | INFO     | PENDING: task_test_pipeline (awaiting human approval)
+2026-04-23 23:28:36 | INFO     | Approval Gate completed: 0 approved, 0 blocked, 1 errors
+2026-04-23 23:28:36 | INFO     | ============================================================
+2026-04-23 23:29:07 | INFO     | ============================================================
+2026-04-23 23:29:07 | INFO     | Approval Gate Agent started
+2026-04-23 23:29:07 | INFO     | Input: C:\dev\AI_Employee_Vault\Needs_Action
+2026-04-23 23:29:07 | INFO     | Plans: C:\dev\AI_Employee_Vault\Plans
+2026-04-23 23:29:07 | INFO     | Pending: C:\dev\AI_Employee_Vault\Pending_Approval
+2026-04-23 23:29:07 | INFO     | Output: C:\dev\AI_Employee_Vault\Approved
+2026-04-23 23:29:07 | INFO     | ============================================================
+2026-04-23 23:29:07 | INFO     | Found 1 task file(s) to process
+2026-04-23 23:29:07 | INFO     | PENDING: task_test_pipeline (awaiting human approval)
+2026-04-23 23:29:07 | INFO     | Approval Gate completed: 0 approved, 0 blocked, 1 errors
+2026-04-23 23:29:07 | INFO     | ============================================================
+2026-04-23 23:29:38 | INFO     | ============================================================
+2026-04-23 23:29:38 | INFO     | Approval Gate Agent started
+2026-04-23 23:29:38 | INFO     | Input: C:\dev\AI_Employee_Vault\Needs_Action
+2026-04-23 23:29:38 | INFO     | Plans: C:\dev\AI_Employee_Vault\Plans
+2026-04-23 23:29:38 | INFO     | Pending: C:\dev\AI_Employee_Vault\Pending_Approval
+2026-04-23 23:29:38 | INFO     | Output: C:\dev\AI_Employee_Vault\Approved
+2026-04-23 23:29:38 | INFO     | ============================================================
+2026-04-23 23:29:38 | INFO     | Found 1 task file(s) to process
+2026-04-23 23:29:38 | INFO     | PENDING: task_test_pipeline (awaiting human approval)
+2026-04-23 23:29:38 | INFO     | Approval Gate completed: 0 approved, 0 blocked, 1 errors
+2026-04-23 23:29:38 | INFO     | ============================================================
+2026-04-23 23:30:08 | INFO     | ============================================================
+2026-04-23 23:30:08 | INFO     | Approval Gate Agent started
+2026-04-23 23:30:08 | INFO     | Input: C:\dev\AI_Employee_Vault\Needs_Action
+2026-04-23 23:30:08 | INFO     | Plans: C:\dev\AI_Employee_Vault\Plans
+2026-04-23 23:30:08 | INFO     | Pending: C:\dev\AI_Employee_Vault\Pending_Approval
+2026-04-23 23:30:08 | INFO     | Output: C:\dev\AI_Employee_Vault\Approved
+2026-04-23 23:30:08 | INFO     | ============================================================
+2026-04-23 23:30:08 | INFO     | Found 1 task file(s) to process
+2026-04-23 23:30:08 | INFO     | PENDING: task_test_pipeline (awaiting human approval)
+2026-04-23 23:30:08 | INFO     | Approval Gate completed: 0 approved, 0 blocked, 1 errors
+2026-04-23 23:30:08 | INFO     | ============================================================
+2026-04-23 23:30:39 | INFO     | ============================================================
+2026-04-23 23:30:39 | INFO     | Approval Gate Agent started
+2026-04-23 23:30:39 | INFO     | Input: C:\dev\AI_Employee_Vault\Needs_Action
+2026-04-23 23:30:39 | INFO     | Plans: C:\dev\AI_Employee_Vault\Plans
+2026-04-23 23:30:39 | INFO     | Pending: C:\dev\AI_Employee_Vault\Pending_Approval
+2026-04-23 23:30:39 | INFO     | Output: C:\dev\AI_Employee_Vault\Approved
+2026-04-23 23:30:39 | INFO     | ============================================================
+2026-04-23 23:30:39 | INFO     | Found 1 task file(s) to process
+2026-04-23 23:30:39 | INFO     | PENDING: task_test_pipeline (awaiting human approval)
+2026-04-23 23:30:39 | INFO     | Approval Gate completed: 0 approved, 0 blocked, 1 errors
+2026-04-23 23:30:39 | INFO     | ============================================================
+2026-04-23 23:31:11 | INFO     | ============================================================
+2026-04-23 23:31:11 | INFO     | Approval Gate Agent started
+2026-04-23 23:31:11 | INFO     | Input: C:\dev\AI_Employee_Vault\Needs_Action
+2026-04-23 23:31:11 | INFO     | Plans: C:\dev\AI_Employee_Vault\Plans
+2026-04-23 23:31:11 | INFO     | Pending: C:\dev\AI_Employee_Vault\Pending_Approval
+2026-04-23 23:31:11 | INFO     | Output: C:\dev\AI_Employee_Vault\Approved
+2026-04-23 23:31:11 | INFO     | ============================================================
+2026-04-23 23:31:11 | INFO     | Found 1 task file(s) to process
+2026-04-23 23:31:11 | INFO     | PENDING: task_test_pipeline (awaiting human approval)
+2026-04-23 23:31:11 | INFO     | Approval Gate completed: 0 approved, 0 blocked, 1 errors
+2026-04-23 23:31:11 | INFO     | ============================================================
+2026-04-23 23:34:38 | INFO     | ============================================================
+2026-04-23 23:34:38 | INFO     | Approval Gate Agent started
+2026-04-23 23:34:38 | INFO     | Input: C:\dev\AI_Employee_Vault\Needs_Action
+2026-04-23 23:34:38 | INFO     | Plans: C:\dev\AI_Employee_Vault\Plans
+2026-04-23 23:34:38 | INFO     | Pending: C:\dev\AI_Employee_Vault\Pending_Approval
+2026-04-23 23:34:38 | INFO     | Output: C:\dev\AI_Employee_Vault\Approved
+2026-04-23 23:34:38 | INFO     | ============================================================
+2026-04-23 23:34:38 | INFO     | Found 1 task file(s) to process
+2026-04-23 23:34:38 | INFO     | PENDING: task_test_pipeline (awaiting human approval)
+2026-04-23 23:34:38 | INFO     | Approval Gate completed: 0 approved, 0 blocked, 1 errors
+2026-04-23 23:34:38 | INFO     | ============================================================
+2026-04-23 23:35:09 | INFO     | ============================================================
+2026-04-23 23:35:09 | INFO     | Approval Gate Agent started
+2026-04-23 23:35:09 | INFO     | Input: C:\dev\AI_Employee_Vault\Needs_Action
+2026-04-23 23:35:09 | INFO     | Plans: C:\dev\AI_Employee_Vault\Plans
+2026-04-23 23:35:09 | INFO     | Pending: C:\dev\AI_Employee_Vault\Pending_Approval
+2026-04-23 23:35:09 | INFO     | Output: C:\dev\AI_Employee_Vault\Approved
+2026-04-23 23:35:09 | INFO     | ============================================================
+2026-04-23 23:35:09 | INFO     | Found 1 task file(s) to process
+2026-04-23 23:35:09 | INFO     | PENDING: task_test_pipeline (awaiting human approval)
+2026-04-23 23:35:09 | INFO     | Approval Gate completed: 0 approved, 0 blocked, 1 errors
+2026-04-23 23:35:09 | INFO     | ============================================================
+2026-04-23 23:35:39 | INFO     | ============================================================
+2026-04-23 23:35:39 | INFO     | Approval Gate Agent started
+2026-04-23 23:35:39 | INFO     | Input: C:\dev\AI_Employee_Vault\Needs_Action
+2026-04-23 23:35:39 | INFO     | Plans: C:\dev\AI_Employee_Vault\Plans
+2026-04-23 23:35:39 | INFO     | Pending: C:\dev\AI_Employee_Vault\Pending_Approval
+2026-04-23 23:35:39 | INFO     | Output: C:\dev\AI_Employee_Vault\Approved
+2026-04-23 23:35:39 | INFO     | ============================================================
+2026-04-23 23:35:39 | INFO     | Found 1 task file(s) to process
+2026-04-23 23:35:39 | INFO     | PENDING: task_test_pipeline (awaiting human approval)
+2026-04-23 23:35:39 | INFO     | Approval Gate completed: 0 approved, 0 blocked, 1 errors
+2026-04-23 23:35:39 | INFO     | ============================================================
+2026-04-23 23:36:10 | INFO     | ============================================================
+2026-04-23 23:36:10 | INFO     | Approval Gate Agent started
+2026-04-23 23:36:10 | INFO     | Input: C:\dev\AI_Employee_Vault\Needs_Action
+2026-04-23 23:36:10 | INFO     | Plans: C:\dev\AI_Employee_Vault\Plans
+2026-04-23 23:36:10 | INFO     | Pending: C:\dev\AI_Employee_Vault\Pending_Approval
+2026-04-23 23:36:10 | INFO     | Output: C:\dev\AI_Employee_Vault\Approved
+2026-04-23 23:36:10 | INFO     | ============================================================
+2026-04-23 23:36:10 | INFO     | Found 1 task file(s) to process
+2026-04-23 23:36:10 | INFO     | PENDING: task_test_pipeline (awaiting human approval)
+2026-04-23 23:36:10 | INFO     | Approval Gate completed: 0 approved, 0 blocked, 1 errors
+2026-04-23 23:36:10 | INFO     | ============================================================
+2026-04-23 23:36:41 | INFO     | ============================================================
+2026-04-23 23:36:41 | INFO     | Approval Gate Agent started
+2026-04-23 23:36:41 | INFO     | Input: C:\dev\AI_Employee_Vault\Needs_Action
+2026-04-23 23:36:41 | INFO     | Plans: C:\dev\AI_Employee_Vault\Plans
+2026-04-23 23:36:41 | INFO     | Pending: C:\dev\AI_Employee_Vault\Pending_Approval
+2026-04-23 23:36:41 | INFO     | Output: C:\dev\AI_Employee_Vault\Approved
+2026-04-23 23:36:41 | INFO     | ============================================================
+2026-04-23 23:36:41 | INFO     | Found 1 task file(s) to process
+2026-04-23 23:36:41 | INFO     | PENDING: task_test_pipeline (awaiting human approval)
+2026-04-23 23:36:41 | INFO     | Approval Gate completed: 0 approved, 0 blocked, 1 errors
+2026-04-23 23:36:41 | INFO     | ============================================================
+2026-04-23 23:37:11 | INFO     | ============================================================
+2026-04-23 23:37:11 | INFO     | Approval Gate Agent started
+2026-04-23 23:37:11 | INFO     | Input: C:\dev\AI_Employee_Vault\Needs_Action
+2026-04-23 23:37:11 | INFO     | Plans: C:\dev\AI_Employee_Vault\Plans
+2026-04-23 23:37:11 | INFO     | Pending: C:\dev\AI_Employee_Vault\Pending_Approval
+2026-04-23 23:37:11 | INFO     | Output: C:\dev\AI_Employee_Vault\Approved
+2026-04-23 23:37:11 | INFO     | ============================================================
+2026-04-23 23:37:11 | INFO     | Found 1 task file(s) to process
+2026-04-23 23:37:11 | INFO     | PENDING: task_test_pipeline (awaiting human approval)
+2026-04-23 23:37:11 | INFO     | Approval Gate completed: 0 approved, 0 blocked, 1 errors
+2026-04-23 23:37:11 | INFO     | ============================================================
+2026-04-23 23:37:42 | INFO     | ============================================================
+2026-04-23 23:37:42 | INFO     | Approval Gate Agent started
+2026-04-23 23:37:42 | INFO     | Input: C:\dev\AI_Employee_Vault\Needs_Action
+2026-04-23 23:37:42 | INFO     | Plans: C:\dev\AI_Employee_Vault\Plans
+2026-04-23 23:37:42 | INFO     | Pending: C:\dev\AI_Employee_Vault\Pending_Approval
+2026-04-23 23:37:42 | INFO     | Output: C:\dev\AI_Employee_Vault\Approved
+2026-04-23 23:37:42 | INFO     | ============================================================
+2026-04-23 23:37:42 | INFO     | Found 1 task file(s) to process
+2026-04-23 23:37:42 | INFO     | PENDING: task_test_pipeline (awaiting human approval)
+2026-04-23 23:37:42 | INFO     | Approval Gate completed: 0 approved, 0 blocked, 1 errors
+2026-04-23 23:37:42 | INFO     | ============================================================
+2026-04-23 23:38:13 | INFO     | ============================================================
+2026-04-23 23:38:13 | INFO     | Approval Gate Agent started
+2026-04-23 23:38:13 | INFO     | Input: C:\dev\AI_Employee_Vault\Needs_Action
+2026-04-23 23:38:13 | INFO     | Plans: C:\dev\AI_Employee_Vault\Plans
+2026-04-23 23:38:13 | INFO     | Pending: C:\dev\AI_Employee_Vault\Pending_Approval
+2026-04-23 23:38:13 | INFO     | Output: C:\dev\AI_Employee_Vault\Approved
+2026-04-23 23:38:13 | INFO     | ============================================================
+2026-04-23 23:38:13 | INFO     | Found 1 task file(s) to process
+2026-04-23 23:38:13 | INFO     | PENDING: task_test_pipeline (awaiting human approval)
+2026-04-23 23:38:13 | INFO     | Approval Gate completed: 0 approved, 0 blocked, 1 errors
+2026-04-23 23:38:13 | INFO     | ============================================================

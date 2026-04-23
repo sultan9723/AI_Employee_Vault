@@ -1,73 +1,32 @@
-# 📊 AI Employee Dashboard
+# 🤖 AI Employee Dashboard
+
+> Last updated: 2026-04-23 23:38:13 | Cycle #8
+
+## System Status
+| Metric | Value |
+|--------|-------|
+| Status | 🟢 Running |
+| Cycle | #8 |
+| Last Run | 2026-04-23 23:38:13 |
+| Agents OK | 7/7 |
+
+## Task Queue
+| Folder | Count |
+|--------|-------|
+| Needs Action | 1 |
+| Pending Approval | 15 |
+
+## Needs Action
+- task_test_pipeline.md\n
+
+## Pending Approval
+- ⏳ approval_client_quote.md\n- ⏳ task_20260205131346_gmail_776546_is_your_Instagram_recov.md\n- ⏳ task_20260205131346_gmail_HabibMetro_App_Banking_Log_In_.md\n- ⏳ task_20260205131346_gmail_HabibMetro_Fund_Transfer.md\n- ⏳ task_20260205131346_gmail_Save_20__on_the_most_powerful_.md\n- ⏳ task_20260205131346_gmail_Use_1716_8264_to_verify_your_e.md\n- ⏳ task_20260205131346_gmail_You_got_Rs__400_from_Sultanqai.md\n- ⏳ task_20260205131346_gmail_You_subscribed_to_a_mobile_bun.md\n- ⏳ task_20260205131948_gmail_Security_alert.md\n- ⏳ task_client_quote.md\n- ⏳ task_live_consulting_request.md\n- ⏳ task_pending.md\n- ⏳ task_silver_demo.md\n- ⏳ task_test_pipeline.md\n- ⏳ task_test_quote.md\n
+
+## How to Approve a Task
+1. Open the task file in `Pending_Approval/`
+2. Review the plan in `Plans/`
+3. Copy the file to `Approved/` folder
+4. Orchestrator will handle the rest automatically
 
 ---
-last_updated: 2026-02-03
-status: operational
----
-
-## 🟢 System Status
-
-| Component | Status | Last Check |
-|-----------|--------|------------|
-| Orchestrator | 🟡 Idle | - |
-| Gmail Watcher | 🔴 Offline | - |
-| WhatsApp Watcher | 🔴 Offline | - |
-| LinkedIn Watcher | 🔴 Offline | - |
-
----
-
-## 📥 Queue Overview
-
-| Folder | Count | Action Required |
-|--------|-------|-----------------|
-| Inbox | 0 | New items to triage |
-| Needs_Action | 0 | Awaiting AI processing |
-| Pending_Approval | 0 | **Awaiting YOUR approval** |
-| In_Progress | 0 | Currently executing |
-
----
-
-## ⏳ Pending Your Approval
-
-> Move files from `Pending_Approval/` to `Approved/` to authorize execution.
-
-| Task | Type | Created | Priority |
-|------|------|---------|----------|
-| - | - | - | - |
-
----
-
-## ✅ Recent Completions (Last 7 Days)
-
-| Task | Completed | Result |
-|------|-----------|--------|
-| - | - | - |
-
----
-
-## 💰 Financial Summary (MTD)
-
-| Metric | Amount |
-|--------|--------|
-| Revenue | $0.00 |
-| Expenses | $0.00 |
-| Net | $0.00 |
-
-*See [Accounting/Current_Month.md](Accounting/Current_Month.md) for details*
-
----
-
-## 🔔 Alerts
-
-- No active alerts
-
----
-
-## 📋 Quick Actions
-
-- [ ] Check `Pending_Approval/` folder
-- [ ] Review weekly briefing in `Briefings/`
-- [ ] Update `Business_Goals.md` if targets changed
-
----
-*Dashboard auto-refreshes via status_snapshot.py*
+*AI Employee v1.0 — Running autonomously*
