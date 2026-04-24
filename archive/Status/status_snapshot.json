@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-04-24T20:51:26.043097+00:00",
+  "needs_action": [],
+  "pending_approval": [],
+  "waiting_for_approval": [],
+  "approved": [],
+  "in_progress": [],
+  "done": [
+    "task_20260425015121.md",
+    "test.md"
+  ],
+  "failed": []
+}

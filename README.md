@@ -1,192 +1,131 @@
-# 🤖 AI Employee Vault
+# AI Email-to-Action Agent
 
-> **An autonomous AI employee that reads tasks, thinks through decisions, and asks for approval — all powered by Claude Code and Obsidian.**
-
-Personal AI Employee
+Convert natural language input into real-world actions using a lightweight decision engine.
 
 ---
 
-## 💡 What Is This?
+## Overview
 
-Imagine hiring a junior employee who:
-- Reads incoming emails and messages
-- Figures out what needs to be done
-- Drafts plans and responses
-- Asks you before taking action
-- Keeps perfect records of everything
+This project demonstrates an AI-inspired system that interprets input messages, determines the appropriate action, and executes it through external integrations.
 
-**That's exactly what this system does — but the employee is an AI.**
-
-The AI Employee monitors a folder-based inbox, evaluates each task, creates execution plans, and routes decisions through human approval before acting. It's autonomous, but never goes rogue.
+The system simulates an autonomous workflow where decisions are made based on message intent and mapped to executable operations such as API calls or communication tasks.
 
 ---
 
-## 🧠 The Brain: Claude Code
+## Key Capabilities
 
-**Claude Code** serves as the reasoning engine — the AI's brain.
+* Interprets natural language input
+* Applies decision logic to determine actions
+* Executes real HTTP requests (webhooks)
+* Simulates email-based responses
+* Provides structured execution output
 
-When a new task arrives, Claude:
-1. Reads and understands the request
-2. Determines urgency and complexity
-3. Creates a step-by-step execution plan
-4. Identifies what requires human approval
-5. Writes clear reasoning for every decision
+---
 
-Claude follows strict rules defined in `CLAUDE.md` — acting conservatively and always preferring human oversight for sensitive actions.
+## Example
 
-```
-"Be conservative. Prefer human approval. Never act without explicit authorization."
+### Input
+
+```bash
+python run_ai_employee.py "System is down, alert the team"
 ```
 
----
-
-## 📚 The Memory: Obsidian Vault
-
-**Obsidian** acts as the AI's memory, workspace, and dashboard.
-
-The entire system lives in an Obsidian vault — a collection of markdown files organized into folders:
-
-| Folder | Purpose |
-|--------|---------|
-| `Inbox/` | New tasks arrive here |
-| `Needs_Action/` | Tasks awaiting AI processing |
-| `Plans/` | Execution plans created by the AI |
-| `Pending_Approval/` | Decisions waiting for human sign-off |
-| `Approved/` | Manager-approved actions |
-| `Done/` | Completed tasks |
-| `Logs/Reasoning/` | Full audit trail of AI decisions |
-
-This structure means:
-- Everything is human-readable (no databases)
-- Full transparency into AI thinking
-- Easy to review, edit, or override
-- Works offline with local files
-
----
-
-## 🔄 How Tasks Flow Through the System
+### Output
 
 ```
-┌─────────────┐
-│   CLIENT    │  (sends email/WhatsApp)
-└──────┬──────┘
-       ▼
-┌─────────────┐
-│   INBOX     │  Task lands as markdown file
-└──────┬──────┘
-       ▼
-┌─────────────┐
-│ NEEDS_ACTION│  AI evaluates the task
-└──────┬──────┘
-       ▼
-┌─────────────┐
-│   PLANS     │  AI creates execution plan
-└──────┬──────┘
-       ▼
-┌─────────────┐
-│  PENDING    │  AI requests human approval
-│  APPROVAL   │
-└──────┬──────┘
-       ▼
-┌─────────────┐
-│  HUMAN      │  Manager reviews & approves
-│  DECISION   │
-└──────┬──────┘
-       ▼
-┌─────────────┐
-│   DONE      │  Task completed & logged
-└─────────────┘
-```
-
-**Example:** A client emails asking for a quote → AI reads the request → Creates itemized quote → Submits for manager approval → Manager approves → AI sends quote → Task archived.
-
----
-
-## 👤 Human-in-the-Loop: You Stay in Control
-
-The AI Employee is designed to **assist, not replace** human judgment.
-
-### When does the AI ask for approval?
-
-| Action Type | AI Behavior |
-|-------------|-------------|
-| Reading/analyzing tasks | Autonomous |
-| Creating plans | Autonomous |
-| Internal calculations | Autonomous |
-| **Client communication** | Requires approval |
-| **Financial decisions** | Requires approval |
-| **Commitments/contracts** | Requires approval |
-
-### How approval works:
-
-1. AI creates a formal approval request in `Pending_Approval/`
-2. Request includes: summary, proposed action, and reasoning
-3. Human reviews and selects: **Approve / Modify / Reject**
-4. AI only proceeds after explicit authorization
-
-This ensures the AI handles the busywork while humans make the important calls.
-
----
-
-## Why This Matters
-
-| Traditional Automation | AI Employee Vault |
-|------------------------|-------------------|
-| Rigid rules | Understands context |
-| Breaks on edge cases | Reasons through ambiguity |
-| No explanation | Full reasoning logs |
-| All-or-nothing | Human approval checkpoints |
-| Technical setup | Plain markdown files |
-
-This system demonstrates that **AI employees can be practical today** — not as science fiction, but as useful tools that augment human work.
-
----
-
-## 📁 Project Structure
-
-```
-AI_Employee_Vault/
-├── Inbox/                  # New incoming tasks
-├── Needs_Action/           # Tasks being processed
-├── Plans/                  # AI-generated execution plans
-├── Pending_Approval/       # Awaiting human sign-off
-├── Approved/               # Authorized actions
-├── Done/                   # Completed work
-├── Rejected/               # Declined tasks
-├── Logs/Reasoning/         # Decision audit trail
-├── agents/                 # Python automation scripts
-├── watchers/               # File system monitors
-├── CLAUDE.md               # AI behavior rules
-├── Company_Handbook.md     # Business context
-├── Business_Goals.md       # Strategic objectives
-└── Dashboard.md            # Status overview
+Decision: webhook
+Execution: HTTP POST
+Status: 200
+Success: True
 ```
 
 ---
 
-## Quick Demo
+## Execution Flow
 
-1. Drop a task file into `Inbox/`
-2. Watch the AI read it, plan a response, and request approval
-3. Review the approval request in `Pending_Approval/`
-4. Approve it — task completes automatically
-
----
-
-## 🛠 Built With
-
-- **Claude Code** — AI reasoning and decision-making
-- **Obsidian** — Knowledge management and dashboard
-- **Python** — File watchers and task routing
-- **Markdown** — Universal, human-readable format
+```
+Input → Decision Engine → Action Routing → Execution → Result
+```
 
 ---
 
-## 
-Personal AI Employee 
+## Supported Actions
+
+| Action  | Description                         |
+| ------- | ----------------------------------- |
+| webhook | Sends HTTP POST request to endpoint |
+| email   | Simulates sending an email response |
+| ignore  | No action taken                     |
 
 ---
 
-*"The best AI employee is one that knows when to ask for help."*
+## Project Structure
 
-This system demonstrates how an AI employee can reason, act, and justify decisions responsibly.
+```
+run_ai_employee.py
+decision_engine.py
+actions/
+  ├── webhook.py
+  ├── email.py
+```
+
+---
+
+## How to Run
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the system:
+
+```bash
+python run_ai_employee.py "your message here"
+```
+
+---
+
+## Design Approach
+
+The system follows a modular structure:
+
+* **Decision Engine**
+  Determines the appropriate action based on input patterns
+
+* **Action Layer**
+  Handles execution logic (webhook, email)
+
+* **Orchestrator (CLI)**
+  Connects input, decision-making, and execution
+
+This design enables easy extension to additional actions and integration with more advanced AI models.
+
+---
+
+## Extensibility
+
+This project can be extended with:
+
+* LLM-based decision-making (OpenAI, local models)
+* Real email integration (SMTP or APIs)
+* CRM or Slack integrations
+* Multi-step workflows
+* Event-driven triggers
+
+---
+
+## Purpose
+
+This project demonstrates:
+
+* Practical application of agent-like systems
+* Decision-driven automation workflows
+* Integration of AI logic with real-world execution layers
+
+---
+
+## Author
+
+Built as part of an AI engineering .
