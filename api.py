@@ -1,24 +1,33 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from run_ai_employee import execute_task
 
 app = FastAPI()
 
+
 class TaskRequest(BaseModel):
     message: str
 
+
 @app.post("/run")
-async def run_task(request: TaskRequest):
-    res = execute_task(request.message)
-    return {
-        "decision": res["action"],
-        "result": res["result"],
-        "success": res["success"]
-    }
+def run_task(request: TaskRequest):
+    try:
+        res = execute_task(request.message)
+
+        return {
+            "decision": res.get("action"),
+            "result": res.get("result"),
+            "success": res.get("success", True)
+        }
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 @app.get("/")
 def root():
-    return {"message": "AI Employee API is running"}
-    
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    return {
+        "status": "AI Employee API running",
+        "endpoint": "/run",
+        "method": "POST"
+    }
