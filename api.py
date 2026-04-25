@@ -15,7 +15,10 @@ async def run_task(request: TaskRequest):
         "result": res["result"],
         "success": res["success"]
     }
-
+@app.get("/")
+def root():
+    return {"message": "AI Employee API is running"}
+    
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
