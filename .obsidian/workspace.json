@@ -1,0 +1,218 @@
+{
+  "main": {
+    "id": "4ad248c5d6e343b9",
+    "type": "split",
+    "children": [
+      {
+        "id": "4dd6a9b3ce348023",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6eea0aefeb58a270",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "55cf563e11c97bbb",
+    "type": "split",
+    "children": [
+      {
+        "id": "0acd1892826d84f1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ac47fc44b7b00959",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "ef06f4cd9fa4c61a",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "bbc83b17d4f5cccd",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "bee2683e1d3abe77",
+    "type": "split",
+    "children": [
+      {
+        "id": "15fc70f33836c67a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bf7e5896683c31a6",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "b11df196153223dc",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "4274061360ec3206",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "f6e4e43ea482009f",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "692c677703b10c8e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "6eea0aefeb58a270",
+  "lastOpenFiles": [
+    "__pycache__/api.cpython-312.pyc",
+    "__pycache__/run_ai_employee.cpython-312.pyc",
+    "api.py",
+    "Pending_Approval/task_20260205131346_gmail_You_subscribed_to_a_mobile_bun.md",
+    "Pending_Approval/task_test_quote.md",
+    "Pending_Approval/task_test_pipeline.md",
+    "Pending_Approval/task_silver_demo.md",
+    "Pending_Approval/task_pending.md",
+    "Pending_Approval/task_live_consulting_request.md",
+    "Pending_Approval/task_client_quote.md",
+    "Pending_Approval/task_20260205131948_gmail_Security_alert.md",
+    "Pending_Approval/task_20260205131346_gmail_You_got_Rs__400_from_Sultanqai.md",
+    "Pending_Approval/task_20260205131346_gmail_Use_1716_8264_to_verify_your_e.md",
+    "Pending_Approval/task_20260205131346_gmail_Save_20__on_the_most_powerful_.md",
+    "Pending_Approval/task_20260205131346_gmail_776546_is_your_Instagram_recov.md",
+    "Pending_Approval/task_20260205131346_gmail_HabibMetro_Fund_Transfer.md",
+    "Pending_Approval/task_20260205131346_gmail_HabibMetro_App_Banking_Log_In_.md",
+    "Pending_Approval/approval_client_quote.md",
+    "Pending_Approval",
+    "Logs/Reasoning/task_silver_demo.md.reasoning.md",
+    "Logs/Reasoning/task_live_consulting_request.md.reasoning.md",
+    "Logs/Reasoning/task_002.md.reasoning.md",
+    "Logs/Reasoning/task_001.md.reasoning.md",
+    "Logs/webhook_dispatcher.log",
+    "Logs/watcher.log",
+    "Logs/Reasoning",
+    "Logs/email_dispatcher.log",
+    "Logs/decision_resolver.log",
+    "Logs/decision_maker.log",
+    "Logs/approved_watcher.log",
+    "Failed/test_email.md",
+    "Failed/task_webhook_test.md",
+    "Done/test_email_task.md",
+    "Done/test_email.md",
+    "Done/testing_email.md",
+    "Done/task_test_quote.md"
+  ]
+}
